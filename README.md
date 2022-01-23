@@ -25,11 +25,11 @@ with [Apple Silicon](https://support.apple.com/it-it/HT211814).
 
 - Tested version
 
-| Python Version | Platforms                     | Status | Notes                                            |
-|---------|--------------------------------------|--------|--------------------------------------------------|
-| 3.9.7   | macOS(arm64)                         |   ✅   | pymssql==2.2.2                                   |
-| 3.9.7   | macOS(x86_64)                        |   ✅   | pymssql==2.1.5                                   |
-
+| Python Version | Platforms          | Status | Notes          |
+|---------|--------------------|--------|----------------|
+| 3.9.7   | macOS(arm64)       |   ✅   | pymssql==2.2.2 |
+| 3.9.7   | macOS(x86_64)      |   ✅   | pymssql==2.1.5 |
+| 3.9.7   | Windows 10(x86_64) |   ✅   | pymssql==2.2.2 |
 
 ## Installation
 
