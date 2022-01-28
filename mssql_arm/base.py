@@ -12,7 +12,6 @@ import warnings
 
 from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.core.validators import validate_ipv46_address
-from pymssql._mssql import MSSQLDatabaseException
 
 try:
     # import pyodbc as Database
@@ -20,11 +19,17 @@ try:
 except ImportError as e:
     raise ImproperlyConfigured("Error loading pyodbc module: %s" % e)
 
+try:
+    from pymssql._mssql import MSSQLDatabaseException
+except ModuleNotFoundError:
+    # Error in version 2.1.5    # todo
+    MSSQLDatabaseException = Exception
+
 from django.utils.version import get_version_tuple  # noqa
 
 PYMSSQL_VERSION = tuple(map(int, Database.__version__.split('.')))
-if PYMSSQL_VERSION < (2, 2, 2):
-    raise ImproperlyConfigured("pymssql 2.2.2 or newer is required; you have %s" % Database.__version__)
+if PYMSSQL_VERSION < (2, 1, 5):
+    raise ImproperlyConfigured("pymssql 2.1.5 or newer is required; you have %s" % Database.__version__)
 
 from django.conf import settings  # noqa
 from django.db import NotSupportedError  # noqa

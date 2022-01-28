@@ -5,7 +5,7 @@ from django.db import models
 from django.db.models.fields import AutoFieldMixin, AutoFieldMeta, DecimalField  # noqa
 from django.forms import ValidationError
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 __all__ = (
     'AutoDecimalField',
